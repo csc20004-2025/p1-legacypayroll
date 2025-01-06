@@ -1,85 +1,63 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Project Information -->
     <groupId>uk.ac.keele.csc20004.legacy</groupId>
     <artifactId>legacypayroll</artifactId>
     <version>1.0.0</version>
-    <name>Legacy Payroll</name>
-    <description>Simulating legacy code for managing employees on a payroll.</description>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
-    </properties>
     <packaging>jar</packaging>
 
+    <name>Legacy Payroll</name>
+    <description>Simulating legacy code for managing employees on a payroll.</description>
+    <url>https://github.com/USERNAME/REPOSITORY</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>USERNAME</id>
+            <name>Your Name</name>
+            <email>your-email@example.com</email>
+            <url>https://github.com/csc20004-2025</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/csc20004-2025/p1-legacypayroll</url>
+        <connection>scm:git:git://github.com/csc20004-2025/p1-legacypayroll.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:csc20004-2025/p1-legacypayroll.git</developerConnection>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/csc20004-2025/p1-legacypayroll</url>
+        </repository>
+    </distributionManagement>
+
     <build>
-        <!-- Specifying resources to be included in the jar -->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.java</include>
-                    <include>**/*.gwt.xml</include>
-                </includes>
-            </resource>
-        </resources>
         <plugins>
-            <!-- Compile Java sources -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
-            </plugin>
-
-            <!-- Create a JAR file with both classes and sources -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
-            </plugin>
-
-            <!-- Configure maven-source-plugin to attach sources to the build -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Configure maven-javadoc-plugin to attach docs to the build -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.6.2</version>
+                <version>3.8.1</version>
                 <configuration>
-                  <source>${maven.compiler.source}</source>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
-                <executions>
-                  <execution>
-                    <id>attach-javadoc</id>
-                    <goals>
-                      <goal>jar</goal>
-                    </goals>
-                  </execution>
-                </executions>
-              </plugin>
-        
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
         </plugins>
     </build>
 </project>
