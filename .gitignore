@@ -1,0 +1,16 @@
+# Files/directories that will not be tracked by git
+
+# MacOS temp files
+.DS_Store
+**/.DS_Store
+
+# VSCode configuration files
+.vscode/
+
+# Java classes
+target/
+
+# Gitpod configuration files
+.classpath
+.project
+.settings
